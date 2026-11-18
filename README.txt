@@ -1,28 +1,25 @@
-EMPRESTIMO DIARIO - PROJETO ANDROID COM COMPILACAO AUTOMATICA
+EMPRESTIMO DIARIO - PROJETO ANDROID COM GITHUB ACTIONS
 
-O aplicativo abre o sistema em:
+O projeto compila o aplicativo Android que abre:
 https://emprestimo-diario-7ab01ded.base44.app/login
 
+COMO PUBLICAR
+1. Extraia o ZIP.
+2. Crie um repositorio no GitHub chamado emprestimo-diario.
+3. Envie o CONTEUDO da pasta EmprestimoDiarioAndroid para a raiz do repositorio, incluindo a pasta oculta .github.
+4. Abra a aba Actions no repositorio.
+5. Selecione "Compilar APK Android" e clique em "Run workflow".
+6. Aguarde o job terminar com sucesso.
+7. Na pagina da execucao, em Artifacts, baixe EmprestimoDiario-APK.
+8. Extraia o arquivo baixado para obter app-debug.apk.
+
+COMPILACAO AUTOMATICA
+O workflow usa o Android SDK preinstalado no runner ubuntu-latest, verifica/instala a plataforma Android 35 e Build Tools 35.0.0, configura Java 17 e Gradle 8.9 e publica o APK como Artifact por 14 dias.
+
 DADOS DO APP
-- Nome: Emprestimo Diario
-- Identificador: br.com.xistech.emprestimodiario
-- Versao: 1.0
-- Plataforma: Android (WebView)
+Nome: Empréstimo Diário
+Application ID: br.com.xistech.emprestimodiario
+Versão: 1.0
 
-COMO GERAR O APK PELO GITHUB (SEM ANDROID STUDIO)
-1. Baixe e extraia este ZIP.
-2. Entre em https://github.com e crie um repositorio novo (pode ser privado).
-3. Envie todos os arquivos e pastas deste projeto para a raiz do repositorio. IMPORTANTE: envie tambem a pasta oculta .github/workflows.
-   - Pelo site do GitHub: Add file > Upload files; arraste os arquivos e pastas extraidos.
-   - Ou use GitHub Desktop para publicar a pasta do projeto.
-4. No repositorio, abra a aba Actions.
-5. Se solicitado, habilite GitHub Actions.
-6. Selecione "Compilar APK Android" e clique em "Run workflow". Um envio para main/master tambem inicia a compilacao automaticamente.
-7. Aguarde o workflow ficar verde. Abra a execucao concluida e baixe o artefato "EmprestimoDiario-APK" na secao Artifacts.
-8. Extraia o ZIP do artefato. Dentro dele estara o arquivo app-debug.apk. Transfira-o para o Android e instale.
-
-REQUISITOS E OBSERVACOES
-- A compilacao usa GitHub Actions, Java 17, Gradle 8.9 e Android SDK 35.
-- O APK gerado e de depuracao (debug), adequado para testes e instalacao manual. Para publicar na Play Store, sera necessario configurar assinatura de release.
-- O app requer internet e usa HTTPS. Login, cookies e autenticacao externa dependem do funcionamento e das politicas da plataforma Base44.
-- Nao compartilhe credenciais de acesso ao GitHub. O projeto nao contem senhas nem chaves de assinatura.
+OBSERVAÇÃO
+Este pacote contém o código-fonte e a automação de compilação. O APK só será criado após executar o workflow no GitHub. Se o workflow ainda falhar, envie o log completo da etapa que falhou.
